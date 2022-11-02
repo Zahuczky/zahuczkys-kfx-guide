@@ -1,4 +1,3 @@
-<span style="color:white">
 # Aegisub K-Timing Guide
 So, you’ve chosen to learn the ways of k-timing songs inside Aegisub.  
 Sit back and relax, this is going to be easy.
@@ -18,7 +17,6 @@ The blue line is the end time of your line.
 The white is the current position of your playback cursor.
 
 There’s also a plethora of buttons under the visualizer, let’s quickly go through all of them.
-</span>
 
 
 
