@@ -12,5 +12,5 @@ With that out of the way, let’s go through how a line is constructed in the AS
 You can divide what’s inside a line into two basic parts.  
 Things that are in {curly brackets} and things that are outside of it.
 
-![](https://files.catbox.moe/79m8hy.svg)
+<img src="https://files.catbox.moe/7ni7ci.svg"/>
 
