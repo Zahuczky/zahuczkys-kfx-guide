@@ -39,13 +39,16 @@ Basically there’s only one rule we have to follow when we’re timing the lyri
 **Never leave empty space at the beginning/end of your line!**
 
 In practice:
+
 ![enter image description here](https://files.catbox.moe/mlklz2.png)
 In this image, we can clearly see in the visualizer, and hear that the first syllable of our line starts where my cursor is pointing.
 
 So don’t do this:
+
 ![enter image description here](https://files.catbox.moe/6au3i5.png)
 
 Do this instead:
+
 ![enter image description here](https://files.catbox.moe/pttsdk.png)
 Apply the same principles to the end of the line. If you feel like there is room for a buffer, you want the line to stay on-screen a bit longer, don’t worry, that’s the job of the kfx-er. They’ll add the necessary lead in/out time in the effect templates.
 |  ![enter image description here](https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png)|You can use these buttons to check if it’s actually correct.|
@@ -54,11 +57,14 @@ Apply the same principles to the end of the line. If you feel like there is room
 ## K-Timing
 Now, let’s get down to business.  
 With the button mentioned above, switch to karaoke mode.
+
 ![enter image description here](https://files.catbox.moe/5prf08.png)
+
 You can see that our panel changed a bit. Our words are visible in the visualizer, there are some yellow lines in between them, and a new strip appeared with our lyrics, with some blue lines in between.
 
 Let’s talk about that new strip first.  
 That’s where you can divide your lyrics into syllables, by clicking between the letters.
+
 ![enter image description here](https://zahuczky.com/wp-content/uploads/2022/05/splitsyls.gif)
 > Kinda like this.
 
@@ -86,6 +92,7 @@ We can add an empty syllable there, just by clicking again between those syllabl
 > Like this
 
 Or in cases where that break is _really_ short, we can add them to the syllable before.
+
 ![enter image description here](https://files.catbox.moe/f2yb8f.png)
 
 What we have to pay attention to, is to never add those breaks to the beginning of a syllable. Our syllables should always start where they actually do in the audio.
