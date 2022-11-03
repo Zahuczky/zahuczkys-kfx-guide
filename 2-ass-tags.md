@@ -12,11 +12,5 @@ With that out of the way, let’s go through how a line is constructed in the AS
 You can divide what’s inside a line into two basic parts.  
 Things that are in {curly brackets} and things that are outside of it.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 20" fill="white">
-<rect width="100%" height="100%" fill="white"/>
-    <text x="0" y="15" fill="#4285f4">T</text>
-    <text x="12" y="15" fill="#ea4335">e</text>
-    <text x="21" y="15" fill="#fbbc05">s</text>
-    <text x="30" y="15" fill="#4285f4">t</text>
-
+$\color{green}{test}$
 
