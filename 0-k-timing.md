@@ -25,14 +25,35 @@ There’s also a plethora of buttons under the visualizer, let’s quickly go th
  
 |||
 |--|--|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2kWeBhVmXi-1.png" alt="drawing"/>|With these two buttons, you can switch between your lines|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SHS0L3pBKN-1.png" alt="drawing"/>|The blue button plays through all of your lines selected in the subtitle grid, while the red only plays the currently active line.|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_NhG41EXcDb-1.png" alt="drawing"/>|This is pretty self explanatory, but for the sake of completeness, this button stops playback.|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png" alt="drawing"/>|These four buttons will be good friends of yours for timing songs. They play a bit before your line, a bit after your line, a bit after the start of your line, and a bit before the end of your line, respectively. With these you can make sure your timing is always on spot, and never bleeds.|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_pHyUkklj5s-1.png" alt="drawing"/>|With these buttons you can add lead in/out times to your lines. Not useful for us, only for dialogue timers.|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_zc4YDhBXDz-1.png" alt="drawing"/>|The green check icon commits all recent changes to your line, the blue arrow scrolls to the center of your audio selection. Not too useful for us.|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SkTTtMI864-1.png" alt="drawing"/>|These are our main settings. In respective order, they auto-save all of our changes to the line(so we don’t need to manually press the button mentioned above), automatically go the next line on committing changes(k-timers should turn on automatic saving, so this is irrelevant), scroll the visualizer when we play back the video/click around in the grid, switch between the modes of the visualizer(for k-timing, you wanna use this mode), the last one is some sort of legacy key binding mode, for the predecessor of Aegisub, Medusa.|
-|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_G79ECD84MC-1.png" alt="drawing"/>|Our best friend. Toggles between line timing/k-timing mode.|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2kWeBhVmXi-1.png" alt="drawing" width="200"/>|With these two buttons, you can switch between your lines|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SHS0L3pBKN-1.png" alt="drawing" width="200"/>|The blue button plays through all of your lines selected in the subtitle grid, while the red only plays the currently active line.|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_NhG41EXcDb-1.png" alt="drawing" width="200"/>|This is pretty self explanatory, but for the sake of completeness, this button stops playback.|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png" alt="drawing" width="200"/>|These four buttons will be good friends of yours for timing songs. They play a bit before your line, a bit after your line, a bit after the start of your line, and a bit before the end of your line, respectively. With these you can make sure your timing is always on spot, and never bleeds.|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_pHyUkklj5s-1.png" alt="drawing" width="200"/>|With these buttons you can add lead in/out times to your lines. Not useful for us, only for dialogue timers.|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_zc4YDhBXDz-1.png" alt="drawing" width="200"/>|The green check icon commits all recent changes to your line, the blue arrow scrolls to the center of your audio selection. Not too useful for us.|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SkTTtMI864-1.png" alt="drawing" width="200"/>|These are our main settings. In respective order, they auto-save all of our changes to the line(so we don’t need to manually press the button mentioned above), automatically go the next line on committing changes(k-timers should turn on automatic saving, so this is irrelevant), scroll the visualizer when we play back the video/click around in the grid, switch between the modes of the visualizer(for k-timing, you wanna use this mode), the last one is some sort of legacy key binding mode, for the predecessor of Aegisub, Medusa.|
+
+|||
+|--|--|
+|<img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_G79ECD84MC-1.png" alt="drawing" width="200"/>|Our best friend. Toggles between line timing/k-timing mode.|
 
 ## Timing lines
 First and foremost, you need to time the lines properly, before even thinking about doing any karaoke timing.
