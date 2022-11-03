@@ -43,14 +43,12 @@ This a bit of a harder topic, as there are very few technical arguments for crea
 We can go through some examples now. (File sizes of these videos can reach up to 100MB/video. So if you’re on a metered connection, like mobile data, you might want to skip watching these)  
 These are all kfx-es made by me.
 
-<a href="https://files.catbox.moe/pz2gkz.mp4" rel="noopener noreferrer" target="_blank"> 
-<img src="https://files.catbox.moe/yjey14.png" />
-</a>
+[<img src="https://files.catbox.moe/yjey14.png" />](https://files.catbox.moe/pz2gkz.mp4){:target="_blank"}
 
 This is the opening of Ijiranaide, Nagatoro-san, with the KFX I made for the BullySubs release.  
 I would call this a “medium complexity” kfx. The shake and color change of every line require some knowledge(and a lot of time, especially for the color change), so this is not the “first KFX you’re gonna create” but you can get on this level relatively quickly.
 
-<a href="https://files.catbox.moe/8zscy5.mp4" rel="noopener noreferrer" target="_blank"> 
+<a href="https://files.catbox.moe/8zscy5.mp4" target="_blank"> 
 <img src="https://files.catbox.moe/zez1q9.png" />
 </a>
 
