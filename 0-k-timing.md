@@ -1,6 +1,6 @@
 
 
-# Aegisub K-Timing Guide
+# Aegisub K-Timing Guide 0
 So, you’ve chosen to learn the ways of k-timing songs inside Aegisub.  
 Sit back and relax, this is going to be easy.
 
