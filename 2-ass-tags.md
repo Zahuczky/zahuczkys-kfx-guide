@@ -14,3 +14,7 @@ Things that are in {curly brackets} and things that are outside of it.
 
 <img src="https://files.catbox.moe/7ni7ci.svg" width="500"/>
 
+```
+{\fnArial}Arial {\fnTimes New Roman}Times New Roman
+```
+
