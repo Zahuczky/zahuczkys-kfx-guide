@@ -1,4 +1,4 @@
-# # KFX Guide – 01 – Introduction
+# KFX Guide – 01 – Introduction
 
 So, this is more or less going to be an introductionary piece to my KFX guide.
 
