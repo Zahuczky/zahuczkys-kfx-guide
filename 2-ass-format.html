@@ -1,0 +1,120 @@
+<head>
+<style>
+pre{
+    background-color: #FFFFFF;
+font-family: Roboto, sans-serif;
+}
+h2{
+font-family: Roboto, sans-serif;
+}
+</style>
+</head>
+<p>If you would like to contribute to the guide, you can do that at <a href="https://github.com/Zahuczky/zahuczkys-kfx-guide/" target="_blank" rel="noopener">https://github.com/Zahuczky/zahuczkys-kfx-guide/</a>.
+<p>In this chapter, you’re going to get introduced to the ASS subtitle format, and every ASS tag.</p>
+<p>I will make it clear now, that this is not a full-on “Aegisub guide,” it is assumed that you already know your way around Aegisub, at least in a sense that you can navigate the software.</p>
+<p>If you have no experience with the software, google can probably help you with getting going, and you can always ask others for help.<br>The best place to ask help in is the <a href="https://discord.gg/hQewDqS">GoodJob! Media Discord server</a>.<br>Upon joining, you can ask an admin or a moderator to give you the “Subber role” and with that you can have access to subtitling specific channels. I recommend asking these kind of questions in the #typesetting channel.</p>
+<p>With that out of the way, let’s go through how a line is constructed in the ASS format.<br>You can divide what’s inside a line into two basic parts.<br>Things that are in {curly brackets} and things that are outside of it.</p>
+<pre background-color: #EBECE4; >
+<span style="color: #285a28;"><span style="color: #1432ff;">{</span><strong><span style="color: #000000;">This is in the brackets</span></strong><span style="color: #1432ff;">}</span><span style="color: #000000;">This is out of the brackets</span></span>
+</pre>
+<img src="https://zahuczky.com/wp-content/uploads/2022/07/dummy_001_0-768x432.png"/>
+<p>As you can see, only the text outside the brackets are visible on the video. <br>We can place formatting tags and comments inside the brackets. </p>
+<h2><p>\t(&lt;time1[ms]&gt;,&lt;time2[ms]&gt;,\tag&lt;value&gt;)</p></h2>
+
+<p>For total beginner, this tag might be a bit complicated as a first to be introduced to, but kfx-ing is more-or-less based on this tag, and it’ll make understanding the other tags easier later. \t is short for “transform”, as it can be used to transform between two values of one tag. It’s structure is</p>
+<pre>
+<span style="color: #285a28;"><span style="color: #1432ff;">{</span><span style="color: #5a5a5a;"><b><span style="color: #5a5a5a;"><b><span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>t</b></span></b></span></b></span><span style="color: #ff00c8;">(</span>0<span style="color: #ff00c8;">,</span>1000<span style="color: #ff00c8;">,</span><span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>fs</b></span>200<span style="color: #ff00c8;">)</span><span style="color: #1432ff;">}</span>
+</pre>
+<p>where 0 is the starting point of the transform, 1000 is the end point of the transform, both in milliseconds(1 second = 1000 milliseconds) relative to the start time of our line, \fs is our tag and 200 is it’s value.
+In this configuration, it’ll transform the font size of our text to 200 in one second. </p>
+<p>You can add acceleration to \t tag by supplying a 3rd argument after the times, like <span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #5a5a5a;"><span style="font-weight: bold;"><span style="font-size: 19px; color: #ff00c8;">\</span>t</span></span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">(</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">0</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">1000</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff;"><span style="color: #285a28;">1.5</span></span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #5a5a5a;"><span style="font-weight: bold;"><span style="font-size: 19px; color: #ff00c8;">\</span>fs</span></span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">200</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">)
+</span>An acceleration value of "1" will make the transform linear, while numbers above 1 will make it start slow and end fast, and number between 0 and 1 will make it start fast and end slow.
+<b>Feel free to experiment with it a bit.</b>(this is an order, not a request)</p>
+<img src="https://files.catbox.moe/862dfm.gif"/>
+<p>In the above example, the original font size was 100.<br>
+Multiple \t tags can be used on a line.</p>
+<h2><p>\fs&lt;number&gt;</p></h2>
+<p>The tag \fs is short for "font size". It specifies the height of the text in pixels.</p>
+<p>It's argument can be any number, integer or decimal.
+Be careful though, since fonts can have padding above and below them, so the font might not appear exactly as many pixels as you gave. It's font dependent.</p>
+<br>
+<p><b>You can have multiple \fs tags throughout your line, and the text after your tag will be what the tag applies to.</b></p>
+<br>
+<p><b>It can be animated by \t, as you can see in the above example. </b></pp>
+<img src="https://files.catbox.moe/ebgvle.png"/>
+<h2><p>\fn&lt;name&gt;</p></h2>
+<p>\fn specifies the font, or typeface of our text.
+It cannot be animated by \t.</p>
+<pre>
+<span style="color: #285a28;"><span style="color: #1432ff;">{</span><span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>fn</b></span>Arial<span style="color: #1432ff;">}</span><span style="color: #000000;">Arial</span> <span style="color: #1432ff;">{</span><span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>fn</b></span>Times New Roman<span style="color: #1432ff;">}</span><span style="color: #000000;">Times New Roman</span>
+</pre>
+<img src="https://files.catbox.moe/1dvxiw.png"/>
+<p><b>You can have multiple \fn tags throughout your line, and the text after your tag will be affected by it.</b><br>
+<b>Can't be animated by \t.</b></p>
+<h2><p>\an&lt;1-9&gt;<p></h2>
+<p>"an" is short for "alignment" and it has two use cases.
+If our line doesn't a \pos tag(more on that later, but basically if it doesn't have a defined place on the screen) it defines the placement or our subtitle.
+Numbers from 1 to 9 can be it's argument, and they reflect the sides/corners/middle of the screen, with each number representing it's relative place on a keyboard numpad.
+In this state they respect margins set in the style, or on the line.<p>
+<pre>
+<span style="color: #285a28;"><span style="color: #1432ff;">{</span><span style="color: #5a5a5a;"><b><span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>a</b></span>n</b></span>5<span style="color: #1432ff;">}</span><span style="color: #000000;">\an5</span></span>
+</pre>
+<img src="https://files.catbox.moe/9p3lzl.png"/>
+<p>It's other use case is setting the anchor point of our text, relative to it's center.
+The center of a line is... well the center of the text.
+With the \an tag we can difine the anchor point of our text relative to it's center, and this point is going to be the one that tags such as \pos or \move use for the coordinates of the line.
+On the image below, you can see the lines, and their anchor points.</p>
+<p><b>Only one \an tag can be used on one line</b></p>
+<p><b>Can't be animated by \t.</b></p>
+<img src="https://files.catbox.moe/4w3soe.png"/>
+<h2><p>\pos(&lt;xCoord&gt;,&lt;yCoord&gt;)</p></h2>
+<p>"pos" is short for "position," as it can be used to define the position of the text on the screen, by providing it X and Y coordinates.
+Coordinates are always relative to the <b>top left</b> of our screen.
+For example, on a Full HD video(and Full HD subtitle file[which you can set in File-&gt;Subtitle Props.{it should always match the video resolution no matter what someone might say}]) <span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #5a5a5a;"><span style="font-weight: bold;"><span style="font-size: 19px; color: #ff00c8;">\</span>pos</span></span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">(</span><span style="color: #285a28; font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff;">0</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="color: #285a28; font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff;">0</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">)</span> will make our line appear in the top left, while <span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #5a5a5a;"><span style="font-size: 19px; font-weight: bold;"><span style="font-size: 19px; color: #ff00c8;">\</span>pos</span></span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">(</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">1920</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff;"><span style="color: #285a28;">1080</span></span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">)</span> will put it in the bottom right.
+<br><br>
+<b>Only one \pos tag can be used on a line.<br>
+Can't be animated by \t</b></p>
+<img src="https://files.catbox.moe/erdkcc.png"/>
+<h2><p>\move(&lt;xCoord1&gt;,&lt;yCoord1&gt;,&lt;xCoord2&gt;,&lt;yCoord2&gt;,&lt;time1[ms]&gt;,&lt;time2[ms]&gt;)</p></h2>
+<p>As it's name implies, \move can be used to move subtitles around the screen. It's strucutere is:</p>
+<pre>
+<span style="color: #285a28;"><span style="color: #1432ff;">{</span><span style="color: #5a5a5a;"><b><span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>a</b></span>n</b></span>5<span style="color: #5a5a5a;"><b><span style="color: #ff00c8;">\</span>move</b></span><span style="color: #ff00c8;">(</span>0<span style="color: #ff00c8;">,</span>540<span style="color: #ff00c8;">,</span>1920<span style="color: #ff00c8;">,</span>540<span style="color: #ff00c8;">,</span>0<span style="color: #ff00c8;">,</span>2000<span style="color: #ff00c8;">)</span><span style="color: #1432ff;">}</span><span style="color: #000000;">Moving text</span></span>
+</pre>
+<img src="https://files.catbox.moe/7rkwfw.gif"/>
+<p>where "<span style="color: #285a28; font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff;">0</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="color: #285a28; font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff;">540</span>" are our starting coordinates, "<span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">1920</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">540</span><span style="font-size: 19px; color: var( --e-global-color-text );">" are our ending coordinates, and "</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">0</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; background-color: #ffffff; color: #ff00c8;">,</span><span style="font-family: Roboto, sans-serif; font-size: 19px; font-style: normal; font-weight: 400; color: #285a28; background-color: #ffffff;">2000</span>" is our starting and ending time of the movement in milliseconds.<br>
+So \move with these arguments will move the text from 0,540 to 1920,540 in two seconds, starting from the beginning of the line.</span></p>
+
+<p><b>A \move tag can't have acceleration, and only one can be used on a line.</b></p>
+
+<p>I wouldn't think it's worth mentioning, but for the sake of completeness, <em><b>no</b></em>, it can't be animated by \t.</p>
+
+<p>(For multi-step/non-linear movement you can use shadow tags(\shad\xshad\yshad), more on those later)</p>
+
+<h2><p>\bord&lt;num&gt;, \xbord&lt;num&gt;, \ybord&lt;num&gt;</p></h2>
+TODO
+<h2><p>\shad&lt;num&gt;, \xshad&lt;num&gt;, \yshad&lt;num&gt;, </p></h2>
+TODO
+<h2><p>\blur&lt;num&gt;, \be&lt;num&gt;,</p></h2>
+TODO
+<h2><p>\fscx&lt;num&gt;, \fscy&lt;num&gt;,</p></h2>
+TODO
+<h2><p>\blur&lt;num&gt;, \be&lt;num&gt;,</p></h2>
+TODO
+<h2><p>\fsp&lt;num&gt;</p></h2>
+TODO
+<h2><p>\frx&lt;num&gt;, \fry&lt;num&gt;, \frz&lt;num&gt;, </p></h2>
+TODO
+<h2><p>\fax&lt;num&gt;, \fay&lt;num&gt;,</p></h2>
+TODO
+<h2><p>\c&lt;colorCode&gt;, \1c&lt;colorCode&gt;, \2c&lt;colorCode&gt;, \3c&lt;colorCode&gt;, \4c&lt;colorCode&gt;, </p></h2>
+TODO
+<h2><p>\alpha&lt;HEX&gt;, \1a&lt;HEX&gt;, \2a&lt;HEX&gt;, \3a&lt;HEX&gt;, \4a&lt;HEX&gt;, </p></h2>
+TODO
+<h2><p>\org(&lt;xCoord&gt;,&lt;yCoord&gt;)</p></h2>
+TODO
+<h2><p>\fad(&lt;fadein&gt;,&lt;fadeout&gt;), \fade</p></h2>
+TODO
+<h2><p>\clip&lt;num&gt; \iclip&lt;num&gt;</p></h2>
+TODO
+<h2><p>\p&lt;num&gt</p></h2>
+TODO
