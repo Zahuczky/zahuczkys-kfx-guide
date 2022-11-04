@@ -1,121 +1,50 @@
-<h1 id="aegisub-k-timing-guide">Aegisub K-Timing Guide</h1>
+<p>If you would like to contribute to the guide, you can do that at <a href="https://github.com/Zahuczky/zahuczkys-kfx-guide/" target="_blank">https://github.com/Zahuczky/zahuczkys-kfx-guide/</a>.
 <p>So, you’ve chosen to learn the ways of k-timing songs inside Aegisub.<br>Sit back and relax, this is going to be easy.</p>
 <h2 id="our-workspace">Our workspace</h2>
 <p><img src="https://files.catbox.moe/t7q1yb.png" alt="drawing"/></p>
-<blockquote>
+<center>
 <p><em>Audio Panel Inside Aegisub</em></p>
-</blockquote>
+</center>
 <p>Let’s quickly go through what you can find in the audio panel.<br>The three sliders to the right control vertical and horizontal zoom on your audio visualization, and volume. Go ahead and play with them a bit.</p>
 <p>Inside your visualizer, you can see three distinct “lines”, a red, white and blue one.<br>The red line is the start time of your line.<br>The blue line is the end time of your line.<br>The white is the current position of your playback cursor.</p>
 <p>There’s also a plethora of buttons under the visualizer, let’s quickly go through all of them.</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th width="20%"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2kWeBhVmXi-1.png" alt="drawing" width="130"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2kWeBhVmXi-1.png" alt="drawing" width="200"/></td>
 <td>With these two buttons, you can switch between your lines</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SHS0L3pBKN-1.png" alt="drawing" width="150"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SHS0L3pBKN-1.png" alt="drawing" width="200"/></td>
 <td>The blue button plays through all of your lines selected in the subtitle grid, while the red only plays the currently active line.</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_NhG41EXcDb-1.png" alt="drawing" width="130"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_NhG41EXcDb-1.png" alt="drawing" width="200"/></td>
 <td>This is pretty self explanatory, but for the sake of completeness, this button stops playback.</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png" alt="drawing" width="500"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png" alt="drawing" width="400"/></td>
 <td>These four buttons will be good friends of yours for timing songs. They play a bit before your line, a bit after your line, a bit after the start of your line, and a bit before the end of your line, respectively. With these you can make sure your timing is always on spot, and never bleeds.</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_pHyUkklj5s-1.png" alt="drawing" width="150"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_pHyUkklj5s-1.png" alt="drawing" width="200"/></td>
 <td>With these buttons you can add lead in/out times to your lines. Not useful for us, only for dialogue timers.</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_zc4YDhBXDz-1.png" alt="drawing" width="250"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_zc4YDhBXDz-1.png" alt="drawing" width="200"/></td>
 <td>The green check icon commits all recent changes to your line, the blue arrow scrolls to the center of your audio selection. Not too useful for us.</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SkTTtMI864-1.png" alt="drawing" width="1000"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_SkTTtMI864-1.png" alt="drawing" width="200"/></td>
 <td>These are our main settings. In respective order, they auto-save all of our changes to the line(so we don’t need to manually press the button mentioned above), automatically go the next line on committing changes(k-timers should turn on automatic saving, so this is irrelevant), scroll the visualizer when we play back the video/click around in the grid, switch between the modes of the visualizer(for k-timing, you wanna use this mode), the last one is some sort of legacy key binding mode, for the predecessor of Aegisub, Medusa.</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_G79ECD84MC-1.png" alt="drawing" width="100"/></td>
+<td><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_G79ECD84MC-1.png" alt="drawing" width="200"/></td>
 <td>Our best friend. Toggles between line timing/k-timing mode.</td>
 </tr>
 </tbody>
@@ -134,15 +63,10 @@ Apply the same principles to the end of the line. If you feel like there is room
 <table>
 <thead>
 <tr>
-<th><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png" alt="drawing"/></th>
+<th width="20%"><img src="https://zahuczky.com/wp-content/uploads/2022/05/Aegisub9215_2EyOmYDMdd-1.png" alt="drawing" width="130"/></th>
 <th>You can use these buttons to check if it’s actually correct.</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
 <h2 id="k-timing">K-Timing</h2>
 <p>Now, let’s get down to business.<br>With the button mentioned above, switch to karaoke mode.</p>
@@ -150,24 +74,24 @@ Apply the same principles to the end of the line. If you feel like there is room
 <p>You can see that our panel changed a bit. Our words are visible in the visualizer, there are some yellow lines in between them, and a new strip appeared with our lyrics, with some blue lines in between.</p>
 <p>Let’s talk about that new strip first.<br>That’s where you can divide your lyrics into syllables, by clicking between the letters.</p>
 <p><img src="https://zahuczky.com/wp-content/uploads/2022/05/splitsyls.gif" alt="drawing"/></p>
-<blockquote>
-<p>Kinda like this.</p>
-</blockquote>
+<center>
+<p><em>Kinda like this.</em></p>
+</center>
 <p>Don’t forget to press the green commit button after you split your syllables.</p>
 <p>Now, the yellow lines represent the start/end times of our syllables.<br>We can start sliding them around, and with that, actually k-timing our song.</p>
 <p>The MOST IMPORTANT buttons during this part, are SPACE and the LEFT/RIGHT arrow keys. By pressing space, you can listen to the active syllable, and with the arrow keys you can jump between them, with playback.<br>Always listen to the syllable multiple times, and also listen to a bit before and after the syllables with the buttons mentioned above, to make sure it doesn’t bleed over to the next.</p>
 <p><img src="https://files.catbox.moe/f2yb8f.png" alt="drawing"/></p>
-<blockquote>
-<p>The visualizer is a big help to time perfectly.</p>
-</blockquote>
+<center>
+<p><em>The visualizer is a big help to time perfectly.</em></p>
+</center>
 <p>If you turned auto-saving on(you should), your changes are already in the line. Playing back the video, you’ll see your timed line, with the color of the line changing between your first and secondary colors.</p>
 <p>The last thing we have to pay attention to, is that sometimes there is a break between some of our syllables.</p>
 <p><img src="https://files.catbox.moe/nxs39y.png" alt="drawing"/></p>
 <p>We have two ways to deal with them.<br>We can add an empty syllable there, just by clicking again between those syllables in the strip we used before. This is what we  <strong><em>should</em></strong> do for long and significant break.</p>
 <p><img src="https://files.catbox.moe/7tok2d.png" alt="drawing"/></p>
-<blockquote>
-<p>Like this</p>
-</blockquote>
+<center>
+<p><em>Like this</em></p>
+</center>
 <p>Or in cases where that break is <em>really</em> short, we can add them to the syllable before.</p>
 <p><img src="https://files.catbox.moe/f2yb8f.png" alt="drawing"/></p>
 <p>What we have to pay attention to, is to never add those breaks to the beginning of a syllable. Our syllables should always start where they actually do in the audio.</p>
