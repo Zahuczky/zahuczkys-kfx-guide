@@ -12,3 +12,4 @@ You can contribute to the guide here.
 - Recommended storage for images/videos is catbox. 
 - For syntax highlighting, you can use the Aegisub Script in the tools folder of this repo. It'll return a HMTL formatted string with syntax highlight. It might not be perfect, sometimes hand modification might be needed.
 - If you contribute to a page, add yourself to the contributors list at the bottom of the given page. Your name can be a link as well, if you would like it to link somewhere. 
+- For anything, that this rules don't cover, follow the practices previously used in the guide, or if there's nothing like that present, follow common sense.
