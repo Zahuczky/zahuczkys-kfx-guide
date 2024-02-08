@@ -91,17 +91,53 @@ So \move with these arguments will move the text from 0,540 to 1920,540 in two s
 <p>(For multi-step/non-linear movement you can use shadow tags(\shad\xshad\yshad), more on those later)</p>
 
 <h2><p>\bord&lt;num&gt;, \xbord&lt;num&gt;, \ybord&lt;num&gt;</p></h2>
-TODO
+<p>\bord is short for "border", and it can be used to add a border to our text. It's argument is the thickness of the border in pixels.</p>
+<img src="https://files.catbox.moe/20dt66.png"/>
+<br><br>
+<p><b>It can be animated by \t.</b></p>
 <h2><p>\shad&lt;num&gt;, \xshad&lt;num&gt;, \yshad&lt;num&gt;, </p></h2>
-TODO
+<p>\shad is short for "shadow", and it can be used to add a shadow to our text. It's argument is the distance of the shadow from the text in pixels.</p>
+<p>Using the \shad tag will always place our shadow to the bottom right from the text, and increasing the value will place it further away.</p>
+<img src="https://files.catbox.moe/pzj0wv.png"/>
+<br>
+<p>\xshad and \yshad can be used to place the shadow in a specific direction, and can be used to create a shadow in any direction.</p>
+<img src="https://files.catbox.moe/j9ngqo.png"/>
+<br>
+<p>Using \xshad and \yshad can give all kinds of offsets to your subtitles. You can also use them together.</p>
+<p>There's also somethin known as the “shad trick.”
+    <br>The shad trick is using 0xFE (254) alpha(transparency, more on that below) values on your fill and border, which will make the practically invisible, while still allowing you to render a shadow. It's useful, when you would like to blur(more on that below) the entire text high amounts, or want to move your text in any form of non-linear way, for which you can use multiple \t tags and even acceleration.
+    <br>With this you can overcome the limitations of the \move tag, and create any kind of movement you want.
+</p>
+<p><b>All shadow tags can be animated by \t, which makes them a valuable tool for kfx-ing. Keep that in mind.</b></p>
+
 <h2><p>\blur&lt;num&gt;, \be&lt;num&gt;,</p></h2>
-TODO
+<p>As the name implies, \blur can be used to blur our text, specifically with guassian blur.
+    <br>Although it's usage can be quite tricky, since using \blur on lines with border and/or shadows will only blur the border and/or shadow.
+    <br>If both are present, both will be blurred, but the fill of the text will remain sharp.
+</p>
+<img src="https://files.catbox.moe/0jym8c.png"/>
+<p>As mentioned in the shadow section, you can use the shad trick to use blur on the entire line, even if you want borders, although in that case your border and fill be the same colour.</p>
+<br>
+<p>There's also another kind of blur, which is rarely used nowadays.
+    <br>While it's also a kind of blur, with \blur's guassian blur the blur extends outwards from the text, with \be the blur <i>sort of</i> extends inwards.
+</p>
+<img src="https://files.catbox.moe/52dqrh.png"/>
+<p><b>Both can be animated by \t.</b></p>
 <h2><p>\fscx&lt;num&gt;, \fscy&lt;num&gt;,</p></h2>
-TODO
-<h2><p>\blur&lt;num&gt;, \be&lt;num&gt;,</p></h2>
-TODO
+<p>\fscx and \fscy can be used to scale our text in the X and Y axis respectively. (it's short for "font scale X / Y")
+    <br>It's argument is a percentage, and it can be any number, integer or decimal.
+    <br>It's important to note that the scaling is relative to the original size of the text, where 100 is the default value, so if you use \fscx50, it'll make the text half as wide as it originally was, and if you use \fscy200, it'll make the text twice as tall as it originally was.
+    <br>There is no tag to scale the text in both axis at the same time. (There is one in VSFilterMod, \fsc, tho but thats kinda irrelevant as it was never widely adopted)
+</p>
+<img src="https://files.catbox.moe/62zcmz.png"/>
+<p><b>Both can be animated by \t.</b></p>
 <h2><p>\fsp&lt;num&gt;</p></h2>
-TODO
+<p>\fsp is short for "font spacing", and it can be used to change the spacing between the letters of our text.
+    <br>It's argument is the amount of pixels to add to the space between the letters.
+    <br>It can be any number, integer or decimal, positive or negative. (negative values will make the letters overlap)
+</p>
+<img src="https://files.catbox.moe/eghi7e.png"/>
+<p><b>It can be animated by \t.</b></p>
 <h2><p>\frx&lt;num&gt;, \fry&lt;num&gt;, \frz&lt;num&gt;, </p></h2>
 TODO
 <h2><p>\fax&lt;num&gt;, \fay&lt;num&gt;,</p></h2>
