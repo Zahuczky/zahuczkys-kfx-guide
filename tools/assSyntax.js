@@ -60,16 +60,12 @@ document.querySelectorAll('ass').forEach(el => {
 
     output = formatVector(output,el.innerHTML);
 
-
-
-    // Set monospace font and update the element's HTML
     el.innerHTML = output;
 
     // if the first character is a curly bracket, replace it with "as"
     if (el.innerHTML[0] === "{") {
         el.innerHTML = '<span style="color: #1432FF">{</span>' + el.innerHTML.substring(1);
     }
-
 
     el.innerHTML = `<span style="font-family: monospace; background-color: #fff; color: #000; padding: 3px; border-radius: 3px; margin: 3px 0;">${el.innerHTML}</span>`;
 });
