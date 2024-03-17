@@ -15,14 +15,14 @@ font-family: Roboto, sans-serif;
 <p>If you would like to contribute to the guide, you can do that at <a href="https://github.com/Zahuczky/zahuczkys-kfx-guide/" target="_blank" rel="noopener">https://github.com/Zahuczky/zahuczkys-kfx-guide/</a>.
 <p>In this chapter, you're going to get introduced to the ASS subtitle format, and every ASS tag.</p>
 <p>I will make it clear now, that this is not a full-on “Aegisub guide,” it is assumed that you already know your way around Aegisub, at least in a sense that you can navigate the software.</p>
-<p>If you have no experience with the software, google can probably help you with getting going, and you can always ask others for help.<br>The best place to ask help in is the <a href="https://discord.gg/hQewDqS">GoodJob! Media Discord server</a>.<br>Upon joining, you can ask an admin or a moderator to give you the “Subber role” and with that you can have access to subtitling specific channels. I recommend asking these kind of questions in the #typesetting channel.</p>
+<p>If you have no experience with the software, google can probably help you with getting going, and you can always ask others for help.<br>The best place to ask for help is the <a href="https://discord.gg/hQewDqS">GoodJob! Media Discord server</a>.<br>Upon joining, you can ask an admin or a moderator to give you the “Subber role” and with that you can have access to subtitling specific channels. I recommend asking these kind of questions in the #typesetting channel.</p>
 <p>With that out of the way, let's go through how a line is constructed in the ASS format.<br>You can divide what's inside a line into two basic parts.<br>Things that are in {curly brackets} and things that are outside of it.</p>
 <ass>{<b>This is in the brackets</b>}This is out of the brackets</ass><br><br>
 <img src="https://zahuczky.com/wp-content/uploads/2022/07/dummy_001_0-768x432.png"/>
-<p>As you can see, only the text outside the brackets are visible on the video. <br>We can place formatting tags and comments inside the brackets. </p>
+<p>As you can see, only the text outside the brackets is visible on the video. <br>We can place formatting tags and comments inside the brackets. </p>
 <h2>\t(&lt;time1[ms]&gt;,&lt;time2[ms]&gt;,\tag&lt;value&gt;)</h2>
 
-<p>For total beginner, this tag might be a bit complicated as a first to be introduced to, but kfx-ing is more-or-less based on this tag, and it'll make understanding the other tags easier later. <ass>\t</ass> is short for “transform”, as it can be used to transform between two values of one tag. It's structure is</p>
+<p>For a total beginner, this tag might be a bit complicated as a first to be introduced to, but kfx-ing is more-or-less based on this tag, and it'll make understanding the other tags easier later. <ass>\t</ass> is short for “transform”, as it can be used to transform between two values of one tag. It's structure is</p>
 <p><ass>{\t(0,1000,\fs200)}</ass></p>
 <p>where 0 is the starting point of the transform, 1000 is the end point of the transform, both in milliseconds(1 second = 1000 milliseconds) relative to the start time of our line, <ass>\fs</ass> is our tag and 200 is it's value.
 In this configuration, it'll transform the font size of our text to 200 in one second. </p>
@@ -240,6 +240,9 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
 <br>After the tags, <b>outside</b> of the curly brackets, we have the letter "m" which places the which places our pen to 100, 100 X/Y coordinates.
 <br>Then, we switch into line mode, and define three more points. 200,100 / 200,200 / 100,200. This way, we defined every corner of a rectangle. A line was drawn from each coordinate to the next, and the shape gets filled. Bamm, that's a rectangle.
 <br><br>You may notice, that we didn't draw a line from the bottom left back to the top. Our renderer will always close any shape that was left open, by connecting the last point with the first.
+<br><br>Technically, there are a few more drawing commands, "s" for cubic b-splines, "p" for extended b-splines and "c" for closing b-splines, 
+which are supported by both libass and vsfilter, but basically no other toolings supports them, including the visual typesetting tools in aegisub. 
+Most tooling will likely break on them, or corrupt them, so for now, let's just forget that they exist. 
 <br>See? It's not <i>that</i> complicated.
 <br><br>
 <img src="https://files.zahuczky.com/kfx/draw2.png">
@@ -275,13 +278,46 @@ The <ass>\clip</ass> tag can be used to apply clipping masks to our subtitles.
 <br>For example, <ass>{\an5\clip(m 485 569 l 1408 570 1406 489 b 1180 586.25 674 544.75 485 499)}Half of this text is clipped off.</ass>
 <br><br>
 <img src="https://files.zahuczky.com/kfx/clip3.png">
-<br><br>What's important to note, is that vector clips will always be scaled 1:1 to, and we can't scale it down / multiply the resolution like we could with <ass>\p</ass> tags.
-
+<br><br>Unlike vector drawings, vector clips will always be scaled 1:1, and we can't scale it down / multiply the resolution like we could with <ass>\p</ass> tags.
+<br><br>And, an important thing to note about clips is that the performance of rectangular and vector clip widely differs, as vector clips need much mor processing.
+<br>With rectangular clips, the area in which the characters are rendered just get clamped down, restricting to the area of the clip, but for vector clips, they're rasterized into a bitmap, and then multiplied into the subtitles alpha channel, so a lot of vector clips, especially big ones can have a serious impact on performance.
+<br>For typesetting purposes, this usually isn't really a concern, but for kfx-ing, you may have to pay attention to this.
+<br><br>
+<img src="https://files.zahuczky.com/kfx/cliprender.png">
+<br><br>On the image above, you can see some rendering statistics generated with <a href="https://github.com/joletb/specter-fansub-tools/tree/main">Noro's Assytics</a> (precisely, with joletb's fork).
+<br>In the first seconds, thousands of rectangular clips are rendered, and at 3 seconds, thousands of vector clips get rendered. You can see the big jump in the graph. 
+    The red line at the top marks 42 milliseconds, which is the frame timing of 24fps video, so if the rendering time goes above that, you might have some performance issues. 
+    Note, that this is a fabricated example, but with a lot of clips in you kfx, it's easy to hit that ceiling.
 <p><b>Only rectangular clips can be animated by \t, vector clips can't be.</b></p>
 
 <h2>\i, \b, \u, \s</h2>
-TODO
+These tags can be used to apply italic, bold, underline, and strikeout to our text respectively.
+<br>Each of them take a binary argument, 0 or 1, where 0 means off, and 1 means on.
+<br><br>
+<img src="https://files.zahuczky.com/kfx/ibsu.png">
+<br><br>In the above example, you can see each of these applied to the text.
+<br><ass>{\an5\fnArial\i1}Italicized text.{\i0}\N<br>{\b1}Bold text{\b0}\N<br>{\u1}Underlined Text.{\u0}\N<br>{\s1}Crossed text.{\s0}</ass>
+<br><br>You can alternate between them on and off on the line, and if you don't have a "closing" tag, it' just applied to the entire line.
+<p><b>None of them can be animated by \t.</b></p>
+
+<h2>\n, \N, \q, \r</h2>
+For kfx-ing, you're rather unlikely to use any of these, maybe <ass>\r</ass>, but for completeness's sake, I'll include them. 
+<br>The <b>\n</b> and <b>\N</b> tags can be used for soft linebreaks and hard linebreaks respectively.
+<br>A soft line break will only apply if the wrapping style is set to 2.
+<br>A hard line break will insert a line break regardless of the wrapping style. 
+<br><br><ass>\q</ass> can be used to set the wrapping style.
+<br><ul>
+    <li>0: Smart wrapping, make each line approximately equally long, but top line wider when equal width is impossible. Only \N forces line breaks.</li>
+    <li>1: End-of-line wrapping, fill as much text in a line as possible, then break to next line. Only \N forces line breaks.</li>
+    <li>2: No word wrapping, wide lines will extend beyond the edges of the screen. Both \n and \N force line breaks.</li>
+    <li>3: Smart wrapping, similar to style 0, but bottom lines are made wider.</li>
+</ul>
+<br>(Yes, I straight up copied these from the <a href="https://aegisub.org/docs/latest/ass_tags/#wrapstyle">Aegisub guide</a>.)
+<br><br><ass>\r</ass> can be used to set a new style on the line, if you provide a style name as an argument, or without an argument, 
+will just reset all formatting to the style default for the text following it.
+<p><b>None of them can be animated by \t.</b></p>
+
 
 <p>Writers/contributors: Zahuczky</p>
-<script src="assSyntax.js"></script>
+<script src="https://files.zahuczky.com/assSyntax.js"></script>
 </body>
