@@ -254,6 +254,9 @@ Most tooling will likely break on them, or corrupt them, so for now, let's just 
     but after that, we have three sets of coordinates. Two of these are the coordinates for the control points, and the last, underlined
     one is the coordinate of the point. The two red squares show the control points on the image, and as you can see, those "pull" the drawing
     to themselves.
+<br><br>Technically, there are a few more drawing commands, "s" for cubic b-splines, "p" for extended b-splines and "c" for closing b-splines, 
+which are supported by both libass and vsfilter, but no other toolings supports them, including the visual typesetting tools in aegisub. 
+Most tooling will likely break on them, or corrupt them, so for now, let's just forget that they exist. 
 
 <p><b>Neither the drawings, nor the \p tag can be animated by \t.</b></p>
 
