@@ -20,7 +20,7 @@ font-family: Roboto, sans-serif;
 <ass>{<b>This is in the brackets</b>}This is out of the brackets</ass><br><br>
 <img src="https://zahuczky.com/wp-content/uploads/2022/07/dummy_001_0-768x432.png"/>
 <p>As you can see, only the text outside the brackets is visible on the video. <br>We can place formatting tags and comments inside the brackets. </p>
-<h2>\t(&lt;time1[ms]&gt;,&lt;time2[ms]&gt;,\tag&lt;value&gt;)</h2>
+<h2 id="t">\t(&lt;time1[ms]&gt;,&lt;time2[ms]&gt;,\tag&lt;value&gt;)</h2>
 
 <p>For a total beginner, this tag might be a bit complicated as a first to be introduced to, but kfx-ing is more-or-less based on this tag, and it'll make understanding the other tags easier later. <ass>\t</ass> is short for “transform”, as it can be used to transform between two values of one tag. Its structure is</p>
 <p><ass>{\t(0,1000,\fs200)}</ass></p>
@@ -31,7 +31,7 @@ In this configuration, it'll transform the font size of our text to 200 in one s
 <img src="https://files.zahuczky.com/kfx/tfs.gif"/>
 <p>In the above example, the original font size was 100.<br>
 Multiple <ass>\t</ass> tags can be used on a line.</p>
-<h2>\fs&lt;number&gt;</h2>
+<h2 id="fs">\fs&lt;number&gt;</h2>
 <p>The tag <ass>\fs</ass> is short for "font size". It specifies the height of the text in pixels.</p>
 <p> Its argument can be any number, integer, or decimal.
 Be careful though, since fonts can have padding above and below them, so the font might not appear exactly as many pixels as you gave. It's font dependent.</p>
@@ -40,14 +40,14 @@ Be careful though, since fonts can have padding above and below them, so the fon
 <br>
 <p><b>It can be animated by \t, as you can see in the above example. </b></p>
 <img src="https://files.zahuczky.com/kfx/fs.png"/>
-<h2>\fn&lt;name&gt;</h2>
+<h2 id="fn">\fn&lt;name&gt;</h2>
 <p><ass>\fn</ass> specifies the font, or typeface of our text.
 It cannot be animated by \t.</p>
 <ass>{\fnArial}Arial {\fnTimes New Roman}Times New Roman</ass><br><br>
 <img src="https://files.zahuczky.com/kfx/fn.png"/>
 <p><b>You can have multiple <ass>\fn</ass> tags throughout your line, and the text after your tag will be affected by it.</b><br>
 <b>Can't be animated by \t.</b></p>
-<h2>\an&lt;1-9&gt;</h2>
+<h2 id="an">\an&lt;1-9&gt;</h2>
 <p>"an" is short for "alignment" and it has two use cases.
 If our line doesn't have a <ass>\pos</ass> tag(more on that later, but basically if it doesn't have a defined place on the screen) it defines the placement or our subtitle.
 Numbers from 1 to 9 can be its argument, and they reflect the sides/corners/middle of the screen, with each number representing its relative place on a keyboard numpad.
@@ -61,7 +61,7 @@ In the image below, you can see the lines and their anchor points.</p>
 <p><b>Only one <ass>\an</ass> tag can be used on one line</b></p>
 <p><b>Can't be animated by \t.</b></p>
 <img src="https://files.zahuczky.com/kfx/an2.png"/>
-<h2>\pos(&lt;xCoord&gt;,&lt;yCoord&gt;)</h2>
+<h2 id="pos">\pos(&lt;xCoord&gt;,&lt;yCoord&gt;)</h2>
 <p>"pos" is short for "position," as it can be used to define the position of the text on the screen, by providing it X and Y coordinates.
 Coordinates are always relative to the <b>top left</b> of our screen.
 For example, on a Full HD video(and Full HD subtitle file[which you can set in File-&gt;Subtitle Props.{it should always match the video resolution}]) <ass>\pos(0,0)</ass> will make our line appear in the top left, while <ass>\pos(1920,1080)</ass> will put it in the bottom right.
@@ -69,7 +69,7 @@ For example, on a Full HD video(and Full HD subtitle file[which you can set in F
 <b>Only one <ass>\pos</ass> tag can be used on a line.<br>
 Can't be animated by \t</b></p>
 <img src="https://files.zahuczky.com/kfx/pos.png"/>
-<h2>\move(&lt;xCoord1&gt;,&lt;yCoord1&gt;,&lt;xCoord2&gt;,&lt;yCoord2&gt;,&lt;time1[ms]&gt;,&lt;time2[ms]&gt;)</h2>
+<h2 id="move">\move(&lt;xCoord1&gt;,&lt;yCoord1&gt;,&lt;xCoord2&gt;,&lt;yCoord2&gt;,&lt;time1[ms]&gt;,&lt;time2[ms]&gt;)</h2>
 <p>As it's name implies, <ass>\move</ass> can be used to move subtitles around the screen. Its structure is:</p>
 <ass>{\an5\move(0,540,1920,540,0,2000)}Moving text</ass><br><br>
 <img src="https://files.zahuczky.com/kfx/move.gif"/>
@@ -82,12 +82,12 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
 
 <p>(For multi-step/non-linear movement you can use shadow tags(<ass>\shad\xshad\yshad</ass>), more on those later)</p>
 
-<h2>\bord&lt;num&gt;, \xbord&lt;num&gt;, \ybord&lt;num&gt;</h2>
+<h2 id="bord">\bord&lt;num&gt;, \xbord&lt;num&gt;, \ybord&lt;num&gt;</h2>
 <p><ass>\bord</ass> is short for "border", and it can be used to add a border to our text. Its argument is the thickness of the border in pixels.</p>
 <img src="https://files.zahuczky.com/kfx/bord.png"/>
 <br><br>
 <p><b>It can be animated by \t.</b></p>
-<h2>\shad&lt;num&gt;, \xshad&lt;num&gt;, \yshad&lt;num&gt;, </h2>
+<h2 id="shad">\shad&lt;num&gt;, \xshad&lt;num&gt;, \yshad&lt;num&gt;, </h2>
 <p><ass>\shad</ass> is short for "shadow", and it can be used to add a shadow to our text. Its argument is the distance of the shadow from the text in pixels.</p>
 <p>Using the <ass>\shad</ass> tag will always place our shadow to the bottom right of the text, and increasing the value will place it further away.</p>
 <img src="https://files.zahuczky.com/kfx/shad.png"/>
@@ -102,7 +102,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
 </p>
 <p><b>All shadow tags can be animated by \t, which makes them a valuable tool for kfx-ing. Keep that in mind.</b></p>
 
-<h2>\blur&lt;num&gt;, \be&lt;num&gt;,</h2>
+<h2 id="blur">\blur&lt;num&gt;, \be&lt;num&gt;,</h2>
 <p>As the name implies, <ass>\blur</ass> can be used to blur our text, specifically with gaussian blur.
     <br>Although its usage can be quite tricky, since using <ass>\blur</ass> on lines with border and/or shadows will only blur the border and/or shadow.
     <br>If both are present, both will be blurred, but the fill of the text will remain sharp.
@@ -115,7 +115,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
 </p>
 <img src="https://files.zahuczky.com/kfx/bordblur.png"/>
 <p><b>Both can be animated by \t.</b></p>
-<h2>\fscx&lt;num&gt;, \fscy&lt;num&gt;,</h2>
+<h2 id="fsc">\fscx&lt;num&gt;, \fscy&lt;num&gt;,</h2>
 <p><ass>\fscx</ass> and <ass>\fscy</ass> can be used to scale our text in the X and Y axis respectively. (it's short for "font scale X / Y")
     <br> Its argument is a percentage, and it can be any number, integer or decimal.
     <br>It's important to note that the scaling is relative to the original size of the text, where 100 is the default value, so if you use <ass>\fscx50</ass>, it'll make the text half as wide as it originally was, and if you use <ass>\fscy200</ass>, it'll make the text twice as tall as it originally was.
@@ -123,14 +123,14 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
 </p>
 <img src="https://files.zahuczky.com/kfx/fscxy.png"/>
 <p><b>Both can be animated by \t.</b></p>
-<h2>\fsp&lt;num&gt;</h2>
+<h2 id="fsp">\fsp&lt;num&gt;</h2>
 <p><ass>\fsp</ass> is short for "font spacing", and it can be used to change the spacing between the letters of our text.
     <br> Its argument is the amount of pixels to add to the space between the letters.
     <br>It can be any number, integer or decimal, positive or negative. (negative values will make the letters overlap)
 </p>
 <img src="https://files.zahuczky.com/kfx/fsp.png"/>
 <p><b>It can be animated by \t.</b></p>
-<h2>\frx&lt;num&gt;, \fry&lt;num&gt;, \frz&lt;num&gt;, </h2>
+<h2 id="fr">\frx&lt;num&gt;, \fry&lt;num&gt;, \frz&lt;num&gt;, </h2>
 <p><ass>\frx</ass>, <ass>\fry</ass>, and <ass>\frz</ass> can be used to rotate our text in the X, Y, and Z axis respectively.
     <br> Its argument is the amount of degrees to rotate the text.
     <br>It can be any number, integer or decimal, positive or negative.
@@ -143,7 +143,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
     <p><b>All of them can be animated by \t.</b></p>
 </p>
 
-<h2>\fax&lt;num&gt;, \fay&lt;num&gt;,</h2>
+<h2 id="fa">\fax&lt;num&gt;, \fay&lt;num&gt;,</h2>
 <p><ass>\fax</ass> and <ass>\fay</ass> can be used to skew or slant our text in the X and Y axis respectively. It's often referred to as "shearing."
     <br> Its argument is the factor to this formula: 45 * (1 - (1/2)^factor) * 2
     <br>so 1 will make the text skew/slant by 45 degrees, 2 will make it skew/slant by 67.5 degrees, 3 will make it skew/slant by 78.75 degrees, and so on.
@@ -151,7 +151,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
     <br><br>
     <img src="https://files.zahuczky.com/kfx/faxy.png"/>
     <p><b>Both can be animated by \t.</b></p>
-<h2>\c&lt;colorCode&gt;, \1c&lt;colorCode&gt;, \2c&lt;colorCode&gt;, \3c&lt;colorCode&gt;, \4c&lt;colorCode&gt;, </h2>
+<h2 id="color">\c&lt;colorCode&gt;, \1c&lt;colorCode&gt;, \2c&lt;colorCode&gt;, \3c&lt;colorCode&gt;, \4c&lt;colorCode&gt;, </h2>
 <p>
     <ass>\c</ass> is short for "color", and it can be used to change the color of our text.
     <br> Its argument is a color code, which is a hexadecimal number, and it can be any number from 0 to FFFFFFF.
@@ -166,7 +166,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
     <img src="https://files.zahuczky.com/kfx/color.png"/>
     <p><b>All of them can be animated by \t.</b></p>
 
-<h2>\alpha&lt;HEX&gt;, \1a&lt;HEX&gt;, \2a&lt;HEX&gt;, \3a&lt;HEX&gt;, \4a&lt;HEX&gt;, </h2>
+<h2 id="alhpa">\alpha&lt;HEX&gt;, \1a&lt;HEX&gt;, \2a&lt;HEX&gt;, \3a&lt;HEX&gt;, \4a&lt;HEX&gt;, </h2>
 <p>
     <ass>\a</ass> is short for "alpha", and it can be used to change the transparency of our text. 
     <span style="text-decoration: underline; color: blue; cursor: help;" 
@@ -186,7 +186,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
     <p><b>All of them can be animated by \t.</b></p>
     Referring back to the "shad trick", you can use 0xFE (254) alpha values on your fill and border, which will make the text practically but not technically invisible, while still allowing you to render a shadow.
 </p>
-<h2>\org(&lt;xCoord&gt;,&lt;yCoord&gt;)</h2>
+<h2 id="org">\org(&lt;xCoord&gt;,&lt;yCoord&gt;)</h2>
 <p><ass>\org</ass> is short for "origin", and it can be used to define the origin of our text, which is the point around which the text is rotated.
     <br> Its argument is the X and Y coordinates of the origin, and it's always relative to the top left of the screen.
     <br>It's important to note that the origin is always the center of the text by default(so the anchor point(by alignment) / the same as the <ass>\pos</ass> tag), and it's only visible when you have rotation on your line with <ass>\frx</ass>, <ass>\fry</ass>, or <ass>\frz</ass>.
@@ -194,7 +194,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
     <img src="https://files.zahuczky.com/kfx/orgfrz.png"/>
     <p>In the above example, you can see <ass>{\org(960,540)\frz45}\org(960,540)\frz45</ass></p>
     <p><b>Only one \org tag can be used on a line.</b></p>
-<h2>\fad(&lt;fadein&gt;,&lt;fadeout&gt;), \fade</h2>
+<h2 id="fad">\fad(&lt;fadein&gt;,&lt;fadeout&gt;), \fade</h2>
 <p><ass>\fad</ass> is <i>kinda</i> short for "fade", and it can be used to add a fade-in and fade-out effect to our text.
     <br> Its arguments are the time in milliseconds for the fade in and fade out, and it's always relative to the start and end of the line.
     <br>So <ass>\fad(100,100)</ass> will make the text fade in and out in 100 milliseconds.
@@ -261,7 +261,7 @@ Most tooling will likely break on them, or corrupt them, so for now, let's just 
 
 <p><b>Neither the drawings, nor the \p tag can be animated by \t.</b></p>
 
-<h2>\clip, \iclip</h2>
+<h2 id="clip">\clip, \iclip</h2>
 The <ass>\clip</ass> tag can be used to apply clipping masks to our subtitles.
 <br>
 <br>There are two types of clips we can use, rectangular and vector clips.
@@ -294,7 +294,7 @@ The <ass>\clip</ass> tag can be used to apply clipping masks to our subtitles.
     Note, that this is a fabricated example, but with a lot of clips in your kfx, it's easy to hit that ceiling.
 <p><b>Only rectangular clips can be animated by \t, vector clips can't be.</b></p>
 
-<h2>\i, \b, \u, \s</h2>
+<h2 id="ibus">\i, \b, \u, \s</h2>
 These tags can be used to apply italic, bold, underline, and strikeout to our text respectively.
 <br>Each of them takes a binary argument, 0 or 1, where 0 means off, and 1 means on.
 <br><br>
@@ -304,7 +304,7 @@ These tags can be used to apply italic, bold, underline, and strikeout to our te
 <br><br>You can alternate between them on and off on the line, and if you don't have a "closing" tag, it's just applied to the entire line.
 <p><b>None of them can be animated by \t.</b></p>
 
-<h2>\n, \N, \q, \r</h2>
+<h2 id="nqr">\n, \N, \q, \r</h2>
 For kfx-ing, you're rather unlikely to use any of these, maybe <ass>\r</ass>, but for completeness's sake, I'll include them. 
 <br>The <b>\n</b> and <b>\N</b> tags can be used for soft linebreaks and hard linebreaks respectively.
 <br>A soft line break will only apply if the wrapping style is set to 2.
