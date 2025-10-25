@@ -7,7 +7,7 @@ You can contribute to the guide here.
 - If you decide to contribute to the guide, try not to rewrite the entire thing, and try to refrain from opinionated statements.
 - Still, it's not a technical document, but a guide. Know the reader on the other end of the screen is a person, feel free to communicate to them.
 - Example images should always use black checkboarded background, with white text/black border. The recommended font is Nyala. 
-- [Here's a link to a 1-minute long dummy video you can use as background](https://files.catbox.moe/zyzj6l.mp4) with this you can use petzku's encode clip script.
+- [Here's a link to a 1-minute long dummy video you can use as background](https://raw.githubusercontent.com/Zahuczky/zahuczkys-kfx-guide/refs/heads/main/img/contrib_1_min_black_checkerboard.mp4) with this you can use petzku's encode clip script.
 - Animated examples should be GIF files, not videos. Try to maintain a good quality when converting it to a GIF.
 - Add all images to the img folder, and link them as `https://raw.githubusercontent.com/Zahuczky/zahuczkys-kfx-guide/refs/heads/main/img/image.png`. 
 - For syntax highlighting, just wrap your text in `<ass></ass>` HTML tags. The rather janky and fragile JS code for this can be found in the tools folder.
