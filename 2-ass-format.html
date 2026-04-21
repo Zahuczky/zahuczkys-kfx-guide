@@ -217,7 +217,7 @@ So <ass>\move</ass> with these arguments will move the text from <ass>0,540</ass
     <br>Then, after being like that for 500 milliseconds, so 0.5 seconds, it fades to alpha 50 in 500 milliseconds, which is almost totally visible.
     <br>After that, it stays like that for a second, then in another 500 milliseconds fades to 255, so completely invisible.
     <br><br>Realistically, I've never seen anyone use this, as this can be achieved by <ass>\t</ass> and <ass>\alpha</ass> tags.
-    <br><br>Also, important to note that while the above differentiation is often made between <ass>\fad</ass> and <ass>\fade</ass>, in the real world, all modern VSFilter versions and libass actually treat them as synonyms, so either form works in both. 
+    <br><br>Also, important to note that while the above differentiation is often made between <ass>\fad</ass> and <ass>\fade</ass>, in the real world, all modern VSFilter versions and libass actually treat them as synonyms, so either form works in both. It is still best practice to use <ass>\fad</ass> if you use two arguments, <ass>\fade</ass> if you use 7 arguments, otherwise you may confuse other subtitle authors and potentially tooling that doesn't know both may take both forms.
 </p>
 
     <p><b>Only one <ass>\fad</ass> or <ass>\fade</ass> tag can be used on a line.</b></p>
